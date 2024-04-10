@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 결과 표시
   function showResults(page) {
-    searchResults.innerHTML = ''; // 기존 결과 지우기
+    searchResults.innerHTML = '';
 
     const startIndex = (page - 1) * resultsPerPage;
     const endIndex = Math.min(startIndex + resultsPerPage, totalResults);

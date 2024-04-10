@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
   let currentPage = 1;
   showResults(currentPage);
 
-  // 페이지 버튼 생성
   function createPaginationButtons() {
     const numPages = Math.ceil(numResults / resultsPerPage);
     const paginationContainer = document.createElement('div');

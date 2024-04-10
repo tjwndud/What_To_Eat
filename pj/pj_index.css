@@ -10,6 +10,7 @@
   color: #fff;
   z-index: 1000; /* 다른 요소들과 겹치지 않도록 z-index 설정 */
 }
+
 .navbar__logo i {
   color: #e1ebe1;
   padding-left: 0;

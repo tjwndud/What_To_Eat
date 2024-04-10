@@ -22,9 +22,8 @@ const recipeRankingData = [
 
 function generateRestaurantRanking() {
   const rankingList = document.getElementById('restaurant-ranking');
-  rankingList.innerHTML = ''; // Clear previous contents
+  rankingList.innerHTML = '';
 
-  // Generate restaurant ranking items dynamically
   foodRankingData.forEach((food) => {
     const listItem = document.createElement('li');
     listItem.innerHTML = `
@@ -39,9 +38,8 @@ function generateRestaurantRanking() {
 
 function generateRecipeRanking() {
   const rankingList = document.getElementById('recipe-ranking');
-  rankingList.innerHTML = ''; // Clear previous contents
+  rankingList.innerHTML = '';
 
-  // Generate recipe ranking items dynamically
   recipeRankingData.forEach((recipe) => {
     const listItem = document.createElement('li');
     listItem.innerHTML = `
@@ -70,14 +68,12 @@ function showContent(contentType) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Initial content display
   const restaurantSelection = document.querySelector(
     '.selection-item:nth-child(1)'
   );
   restaurantSelection.classList.add('active');
   showContent('restaurant');
 
-  // Event listener for selection container
   const selectionItems = document.querySelectorAll('.selection-item');
   selectionItems.forEach((item) => {
     item.addEventListener('click', function () {
