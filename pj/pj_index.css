@@ -1,0 +1,112 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 99%;
+  background-color: #21de9f;
+  padding: 9px 12px;
+  color: #fff;
+  z-index: 1000; /* 다른 요소들과 겹치지 않도록 z-index 설정 */
+}
+.navbar__logo i {
+  color: #e1ebe1;
+  padding-left: 0;
+  font-size: 50px;
+  margin-left: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #ffff;
+  font-size: 50px;
+  margin-bottom: 0px;
+  margin-right: 150px;
+}
+
+.navbar__logo a.logo-text {
+  font-size: 50px; /* "뭐먹지?" 텍스트의 크기를 키웁니다. */
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding-left: 0;
+  margin-right: 450px;
+}
+
+.navbar__menu li {
+  padding: 8px 30px;
+}
+
+.navbar__icons {
+  list-style: none;
+  display: flex;
+  color: #ffff;
+  margin: 0;
+  padding-left: 0;
+}
+
+.navbar__menu li:hover {
+  background-color: #129090;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+  }
+}
+
+/* --- 회원가입 텍스트 ---*/
+.additional-text {
+  color: black;
+  font-size: 20px;
+  margin-left: 50px;
+  margin-top: 120px;
+}
+
+/* --- 회원가입 텍스트 색상 ---*/
+.additional-text a {
+  color: black;
+}
+
+/* --- 메인텍스트 ---*/
+.solution {
+  color: black;
+  font-size: 40px;
+  margin-top: 130px;
+  text-align: center;
+}
+
+/* ---메인 텍스트 간격 ---*/
+.solution span {
+  margin-right: 310px;
+}
+
+/* --- 컨테이너로 박스 관리 ---*/
+.box-container {
+  display: flex;
+  justify-content: center;
+}
+
+.box1 {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.box2 {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  border: 2px solid black;
+  margin-left: 200px;
+}
