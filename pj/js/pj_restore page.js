@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const searchResults = document.querySelector('.search-results');
   const backButton = document.querySelector('.back-button'); // 뒤로가기 버튼 선택
   const footer = document.querySelector('.footer'); // footer 요소 선택
+  const paginationContainer = document.createElement('div'); // 페이지 버튼을 담을 컨테이너
 
-  const resultsPerPage = 3; // 한 페이지당 결과 수
+  const resultsPerPage = 10; // 한 페이지당 결과 수
   const totalResults = 30; // 총 결과 수 (예시로 30개라고 가정)
 
   // 초기 페이지 설정
@@ -12,10 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 페이지 버튼 생성
   function createPaginationButtons() {
-    const numPages = Math.ceil(totalResults / resultsPerPage);
-    const paginationContainer = document.createElement('div');
-    paginationContainer.classList.add('pagination');
+    paginationContainer.innerHTML = ''; // 기존 페이지 버튼 제거
 
+    const numPages = Math.ceil(totalResults / resultsPerPage);
     for (let i = 1; i <= numPages; i++) {
       const button = document.createElement('button');
       button.textContent = i;
@@ -26,9 +26,19 @@ document.addEventListener('DOMContentLoaded', function () {
       paginationContainer.appendChild(button);
     }
 
-    // 페이지 버튼을 중앙 아래로 이동
-    footer.innerHTML = ''; // 기존 페이지 버튼 삭제
-    footer.appendChild(paginationContainer); // 새로운 페이지 버튼 추가
+    // 페이지 버튼 스타일 설정
+    paginationContainer.style.display = 'flex';
+    paginationContainer.style.justifyContent = 'center';
+    paginationContainer.style.marginTop = '10px'; // 페이지 버튼과 결과창 사이의 간격 조정
+    paginationContainer.style.visibility = 'hidden'; // 초기에는 보이지 않도록 설정
+    footer.appendChild(paginationContainer); // 페이지 버튼을 footer에 추가
+
+    // 추가한 CSS 스타일 적용
+    paginationContainer.classList.add('pagination');
+    const buttons = paginationContainer.querySelectorAll('button');
+    buttons.forEach((button) => {
+      button.classList.add('pagination-button');
+    });
   }
 
   // 결과 표시
@@ -51,12 +61,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 `;
       searchResults.appendChild(result);
     }
-
-    createPaginationButtons(); // 페이지 버튼 생성
   }
 
   // 뒤로가기 버튼 클릭 시 브라우저 이전 페이지로 이동
   backButton.addEventListener('click', function () {
     window.history.back();
   });
+
+  // 스크롤을 내릴 때 페이지 버튼을 보이도록 설정
+  window.addEventListener('scroll', function () {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 20 // 최하단에서 20px 이전에 페이지 버튼을 표시
+    ) {
+      paginationContainer.style.visibility = 'visible';
+    } else {
+      paginationContainer.style.visibility = 'hidden';
+    }
+  });
+
+  // 페이지 버튼 생성
+  createPaginationButtons();
 });
