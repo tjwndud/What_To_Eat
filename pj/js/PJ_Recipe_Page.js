@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(`You clicked on result ${i + 1}`);
         // 예시: 클릭한 요소의 상세 정보를 표시하는 함수 호출
         // displayResultDetails(i + 1);
+        window.location.href = 'PJ_In_Recipe_Page.html';
       });
     }
 
