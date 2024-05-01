@@ -60,6 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
       searchResults.appendChild(result);
+      result.addEventListener('click', function () {
+        window.location.href = 'PJ_In_Restore_page.html'; // 클릭한 결과로 이동
+      });
     }
   }
 
